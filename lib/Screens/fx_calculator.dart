@@ -1,32 +1,22 @@
-import 'package:bitfx/BackEnd/calculator.dart';
 import 'package:bitfx/Screens/color.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-class FxCalculator extends StatefulWidget{
-  
+class FxCalculator extends StatefulWidget {
   const FxCalculator({Key? key}) : super(key: key);
 
   @override
   _FxCalculatorState createState() => _FxCalculatorState();
-  
 }
 
 class _FxCalculatorState extends State<FxCalculator> {
-
-
-  final  FxCal calculator = Get.put(FxCal(0,',',0,0, 0));
-
   @override
   Widget build(BuildContext context) {
     TextEditingController _accBal = TextEditingController();
-      TextEditingController _currencyPair = TextEditingController();
-        TextEditingController _risk = TextEditingController();
-          TextEditingController _stoploss = TextEditingController();
-            TextEditingController _result = TextEditingController();
-    
-    
-    
+    TextEditingController _currencyPair = TextEditingController();
+    TextEditingController _risk = TextEditingController();
+    TextEditingController _stoploss = TextEditingController();
+    TextEditingController _result = TextEditingController();
+
     return SafeArea(
       child: Scaffold(
           appBar: AppBar(
@@ -69,10 +59,10 @@ class _FxCalculatorState extends State<FxCalculator> {
                       buildcard3(context, _risk),
                       SizedBox(
                           height: MediaQuery.of(context).size.height * 0.01),
-                      buildcard4(context,_stoploss),
+                      buildcard4(context, _stoploss),
                       SizedBox(
                           height: MediaQuery.of(context).size.height * 0.1),
-                      _CalculateButton(context, calculator),
+                      _CalculateButton(context, FxCalculator())
                     ],
                   ),
                 ),
@@ -81,7 +71,7 @@ class _FxCalculatorState extends State<FxCalculator> {
   }
 }
 
-Widget buildcard(context, controller ) {
+Widget buildcard(context, controller) {
   return Container(
     width: MediaQuery.of(context).size.width * 0.8,
     height: MediaQuery.of(context).size.height * 0.1,
@@ -114,7 +104,7 @@ Widget buildcard(context, controller ) {
                         width: 70.0,
                         height: 10,
                         child: TextField(
-                          controller: controller,
+                            controller: controller,
                             cursorColor: Colors.black,
                             style: TextStyle(
                                 fontSize: 20.0,
@@ -163,7 +153,7 @@ Widget buildcard1(context, controller) {
                         width: 70.0,
                         height: 10,
                         child: TextField(
-                          controller: controller,
+                            controller: controller,
                             cursorColor: Colors.black,
                             style: TextStyle(
                                 fontSize: 20.0,
@@ -212,7 +202,7 @@ Widget buildcard2(context, controller) {
                         width: 70.0,
                         height: 10,
                         child: TextField(
-                          controller: controller,
+                            controller: controller,
                             cursorColor: Colors.black,
                             style: TextStyle(
                                 fontSize: 20.0,
@@ -260,7 +250,7 @@ Widget buildcard3(context, controller) {
                             width: 70.0,
                             height: 10,
                             child: TextField(
-                              controller: controller,
+                                controller: controller,
                                 cursorColor: Colors.black,
                                 style: TextStyle(
                                     fontSize: 20.0,
@@ -304,17 +294,16 @@ Widget buildcard4(context, controller) {
                 Row(
                   children: [
                     Container(
-                            width: 70.0,
-                            height: 10,
-                            child: TextField(
-                              controller: controller,
-                                 
-                                cursorColor: Colors.black,
-                                style: TextStyle(
-                                    fontSize: 20.0,
-                                    height: 1.0,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w500)))
+                        width: 70.0,
+                        height: 10,
+                        child: TextField(
+                            controller: controller,
+                            cursorColor: Colors.black,
+                            style: TextStyle(
+                                fontSize: 20.0,
+                                height: 1.0,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500)))
                   ],
                 ),
               ],
@@ -324,12 +313,11 @@ Widget buildcard4(context, controller) {
   );
 }
 
-Widget _CalculateButton(context, FxCal calculator) {
+Widget _CalculateButton(context, calculator) {
   return ElevatedButton(
     onPressed: () {
-   
-    var cal =  calculator.usdPair(1000, 4, 5);
-     print('$cal');
+      var cal = calculator.usdPair(1000, 4, 5);
+      print('$cal');
     },
     style: ElevatedButton.styleFrom(
         padding: EdgeInsets.zero,
@@ -351,5 +339,4 @@ Widget _CalculateButton(context, FxCal calculator) {
   );
 }
 
-void setState(Null Function() param0) {
-}
+void setState(Null Function() param0) {}
