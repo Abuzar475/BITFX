@@ -1,5 +1,6 @@
 import 'package:bitfx/Screens/color.dart';
 import 'package:bitfx/Screens/payment_Screen.dart';
+import 'package:bitfx/main.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -23,7 +24,8 @@ class _SignalScreenState extends State<SignalScreen> {
               style: TextStyle(
                   fontSize: 30, fontWeight: FontWeight.bold, color: kmain),
             )),
-            backgroundColor: drkgrey,
+            backgroundColor: maingry,
+            automaticallyImplyLeading: false,
           ),
           body: Container(
             decoration: BoxDecoration(
@@ -37,28 +39,30 @@ class _SignalScreenState extends State<SignalScreen> {
             )),
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
-            child: Column(
-              children: [
-                SizedBox(height: 30),
-                Container(
-                    height: MediaQuery.of(context).size.height * 0.3,
-                    width: MediaQuery.of(context).size.width * 0.97,
-                    child: SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children: [
-                          _cardmain(context, 'assets/b2.jpg'),
-                          _cardmain(context, 'assets/b3.jpg'),
-                          _cardmain(context, 'assets/b4.jpg'),
-                          _cardmain(context, 'assets/b5.jpg'),
-                          _cardmain(context, 'assets/bitfx.png'),
-                        ],
-                      ),
-                    )),
-                SizedBox(height: MediaQuery.of(context).size.height * 0.3),
-                // build(context),
-                _button(context),
-              ],
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  SizedBox(height: 30),
+                  Container(
+                      height: MediaQuery.of(context).size.height * 0.3,
+                      width: MediaQuery.of(context).size.width * 0.97,
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          children: [
+                            _cardmain(context, 'b5.jpeg'),
+                            _cardmain(context, 'b1.jpeg'),
+                            _cardmain(context, 'b3.jpeg'),
+                            _cardmain(context, 'b4.jpeg'),
+                            _cardmain(context, 'b2.jpeg'),
+                          ],
+                        ),
+                      )),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.3),
+                  // build(context),
+                  _button(context),
+                ],
+              ),
             ),
           )),
     );
@@ -70,7 +74,7 @@ Widget _cardmain(BuildContext context, String image) {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15.0),
       ),
-      color: litgrey,
+      color: secondgry,
       elevation: 4.0,
       child: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -126,7 +130,7 @@ Widget _button(context) {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))),
     child: Ink(
       decoration: BoxDecoration(
-          gradient: LinearGradient(colors: [kmain, drkgrey]),
+          gradient: LinearGradient(colors: [kmain, maingry]),
           borderRadius: BorderRadius.circular(20)),
       child: Container(
         height: MediaQuery.of(context).size.height * 0.1,

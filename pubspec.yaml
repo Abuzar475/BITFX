@@ -40,7 +40,7 @@ dependencies:
 flutter_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/bitfx.png"  
+  image_path: "bitfx.png"  
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -71,13 +71,14 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - bitfx.png
-    - a1.png
-    - a2.png
-    - a3.png
-    - b2.jpg
-    - b3.jpg
-    - b4.jpg
-    - b5.jpg
+    - b1.jpeg
+    - b2.jpeg
+    - b3.jpeg
+    - b4.jpeg
+    - b5.jpeg
+    - a1.jpg
+    - a2.jpg
+    - a3.jpg
    
 
   # An image asset can refer to one or more resolution-specific "variants", see

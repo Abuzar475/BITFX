@@ -36,7 +36,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 child: Text(
                   'My Account',
                   style: TextStyle(
-                      fontSize: 30, color: kmain, fontWeight: FontWeight.w500),
+                      fontSize: 30, color: kmain, fontWeight: FontWeight.bold),
                 ),
               ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.01),
@@ -98,7 +98,7 @@ Widget logoutButton(BuildContext context) {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))),
     child: Ink(
       decoration: BoxDecoration(
-          gradient: LinearGradient(colors: [kmain, drkgrey]),
+          gradient: LinearGradient(colors: [kmain, maingry]),
           borderRadius: BorderRadius.circular(20)),
       child: Container(
         height: MediaQuery.of(context).size.height * 0.1,

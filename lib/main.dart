@@ -1,6 +1,7 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:bitfx/Screens/Login.dart';
-import 'package:bitfx/color.dart';
+import 'package:bitfx/Screens/color.dart';
+import 'package:bitfx/Screens/course_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
           nextScreen: Login(),
           splashTransition: SplashTransition.slideTransition,
           //  pageTransitionType: PageTransitionType.scale,
-          backgroundColor: drkgrey,
+          backgroundColor: maingry,
           splashIconSize: 400,
         ));
   }

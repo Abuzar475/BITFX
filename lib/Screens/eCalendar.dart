@@ -21,7 +21,8 @@ class _EcalendarState extends State<Ecalendar> {
             style: TextStyle(
                 fontSize: 30, fontWeight: FontWeight.bold, color: kmain),
           )),
-          backgroundColor: drkgrey,
+          backgroundColor: maingry,
+          automaticallyImplyLeading: false,
         ),
         body: WebView(
           initialUrl: Uri.dataFromString(

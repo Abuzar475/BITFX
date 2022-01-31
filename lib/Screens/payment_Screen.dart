@@ -23,7 +23,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
               style: TextStyle(
                   fontSize: 30, fontWeight: FontWeight.bold, color: kmain),
             )),
-            backgroundColor: drkgrey,
+            backgroundColor: maingry,
+            automaticallyImplyLeading: false,
           ),
           body: Container(
               decoration: BoxDecoration(
@@ -32,7 +33,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                 end: Alignment.bottomCenter,
                 colors: [
                   kmain,
-                  drkgrey,
+                  maingry,
                 ],
               )),
               width: width,
@@ -40,11 +41,11 @@ class _PaymentScreenState extends State<PaymentScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  _card1(context, 'Basic Learn', '299 \$'),
+                  _card1(context, 'Monthly', '99 \$'),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-                  _card1(context, 'Interactive Learn', '499 \$'),
+                  _card1(context, 'Quatarly', '249 \$'),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-                  _card1(context, 'Learn and earn', '749 \$'),
+                  _card1(context, 'Yearly', '999 \$'),
                 ],
               ))),
     );
@@ -76,8 +77,8 @@ Widget _card1(context, String name, String price) {
               overflow: TextOverflow.fade,
               style: TextStyle(
                   color: kmain,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w500,
+                  fontSize: 30,
+                  fontWeight: FontWeight.w600,
                   height: 1.0),
             ),
             SizedBox(width: MediaQuery.of(context).size.width * 0.2),
@@ -103,10 +104,14 @@ Widget button(context, String price) {
           onPressed: () {
             //TO-DO
           },
-          child: Text("$price",
-              style: TextStyle(
-                  fontSize: 30.0,
-                  height: 1.0,
-                  color: Colors.black,
-                  fontWeight: FontWeight.w500))));
+          child: FittedBox(
+            child: Center(
+              child: Text("$price",
+                  style: TextStyle(
+                      fontSize: 30.0,
+                      height: 1.0,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w500)),
+            ),
+          )));
 }

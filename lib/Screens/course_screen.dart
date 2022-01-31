@@ -23,7 +23,8 @@ class _CoursesScreenState extends State<CoursesScreen> {
               style: TextStyle(
                   fontSize: 30, fontWeight: FontWeight.bold, color: kmain),
             )),
-            backgroundColor: drkgrey,
+            backgroundColor: maingry,
+            automaticallyImplyLeading: false,
           ),
           body: Container(
               decoration: BoxDecoration(
@@ -32,44 +33,51 @@ class _CoursesScreenState extends State<CoursesScreen> {
                 end: Alignment.bottomCenter,
                 colors: [
                   kmain,
-                  Colors.black,
+                  maingry,
                 ],
               )),
               width: width,
               height: height,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  _card1(context, 'assets/a3.png', '299 \$'),
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-                  _card1(context, 'assets/a2.png', '499 \$'),
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-                  _card1(context, 'assets/a1.png', '749 \$'),
-                ],
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    _card1(context, 'a1.jpg', '749 \$'),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+                    _card1(context, 'a3.jpg', '499 \$'),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+                    _card1(context, 'a2.jpg', '299 \$'),
+                  ],
+                ),
               ))),
     );
   }
 }
 
-Widget _card1(context, String image1, String price) {
+Widget _card1(context, String image, String price) {
   return Container(
-    width: MediaQuery.of(context).size.width * 0.8,
-    height: MediaQuery.of(context).size.height * 0.2,
-    decoration:
-        BoxDecoration(color: kmain, borderRadius: BorderRadius.circular(20)),
+    width: MediaQuery.of(context).size.width * 0.9,
+    height: MediaQuery.of(context).size.height * 0.5,
+    decoration: BoxDecoration(
+      color: maingry,
+      borderRadius: BorderRadius.circular(20),
+    ),
     child: FittedBox(
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Row(
+        padding: const EdgeInsets.only(top: 5, bottom: 5),
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Image(
-              image: AssetImage('$image1'),
-              width: MediaQuery.of(context).size.width * 0.5,
-              height: MediaQuery.of(context).size.height * 0.3,
+              fit: BoxFit.fitWidth,
+              image: AssetImage(
+                '$image',
+              ),
+              // width: MediaQuery.of(context).size.width * 0.9,
+              // height: MediaQuery.of(context).size.height * 0.5,
             ),
-            SizedBox(width: MediaQuery.of(context).size.width * 0.2),
-            button(context, '$price'),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+            _LogInbutton(context, '$price'),
           ],
         ),
       ),
@@ -80,10 +88,10 @@ Widget _card1(context, String image1, String price) {
 Widget button(context, String price) {
   return SizedBox(
       height: MediaQuery.of(context).size.height * 0.15,
-      width: MediaQuery.of(context).size.width * 0.4,
+      width: MediaQuery.of(context).size.width * 0.7,
       child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-              primary: drkgrey,
+              primary: maingry,
               elevation: 3,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30)),
@@ -99,4 +107,27 @@ Widget button(context, String price) {
                     color: kmain,
                     fontWeight: FontWeight.w500)),
           )));
+}
+
+Widget _LogInbutton(context, String price) {
+  return ElevatedButton(
+    onPressed: () {},
+    style: ElevatedButton.styleFrom(
+        padding: EdgeInsets.zero,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))),
+    child: Ink(
+      decoration: BoxDecoration(
+          gradient: LinearGradient(colors: [kmain, maingry]),
+          borderRadius: BorderRadius.circular(20)),
+      child: Container(
+        height: 1.4 * (MediaQuery.of(context).size.height / 20),
+        width: 5 * (MediaQuery.of(context).size.width / 10),
+        alignment: Alignment.center,
+        child: Text(
+          '$price',
+          style: TextStyle(fontSize: 24, color: Colors.white),
+        ),
+      ),
+    ),
+  );
 }

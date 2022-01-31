@@ -1,6 +1,6 @@
 import 'package:bitfx/Screens/Login.dart';
+import 'package:bitfx/Screens/color.dart';
 import 'package:bitfx/Screens/getx.dart';
-import 'package:bitfx/color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -16,7 +16,6 @@ class _SignupScreenState extends State<SignupScreen> {
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var widht = MediaQuery.of(context).size.width;
-    print('widht : $widht height $height');
 
     return SafeArea(
       child: Scaffold(
@@ -54,7 +53,7 @@ class _SignupScreenState extends State<SignupScreen> {
           style: TextStyle(
             fontSize: MediaQuery.of(context).size.height / 25,
             fontWeight: FontWeight.bold,
-            color: litgrey,
+            color: secondgry,
           ),
         )
       ],
@@ -144,7 +143,7 @@ class _SignupScreenState extends State<SignupScreen> {
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))),
       child: Ink(
         decoration: BoxDecoration(
-            gradient: LinearGradient(colors: [kmain, drkgrey]),
+            gradient: LinearGradient(colors: [kmain, maingry]),
             borderRadius: BorderRadius.circular(20)),
         child: Container(
           height: 1.4 * (MediaQuery.of(context).size.height / 20),
@@ -170,7 +169,7 @@ class _SignupScreenState extends State<SignupScreen> {
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))),
       child: Ink(
         decoration: BoxDecoration(
-            gradient: LinearGradient(colors: [kmain, drkgrey]),
+            gradient: LinearGradient(colors: [kmain, maingry]),
             borderRadius: BorderRadius.circular(20)),
         child: Container(
           height: 1.4 * (MediaQuery.of(context).size.height / 20),
@@ -234,7 +233,7 @@ class _SignupScreenState extends State<SignupScreen> {
           child: Container(
             height: MediaQuery.of(context).size.height * 0.6,
             width: MediaQuery.of(context).size.width * 0.8,
-            decoration: BoxDecoration(color: drkgrey),
+            decoration: BoxDecoration(color: maingry),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,

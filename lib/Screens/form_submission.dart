@@ -122,7 +122,7 @@ Widget _SubmitButton(context) {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))),
     child: Ink(
       decoration: BoxDecoration(
-          gradient: LinearGradient(colors: [kmain, drkgrey]),
+          gradient: LinearGradient(colors: [kmain, maingry]),
           borderRadius: BorderRadius.circular(20)),
       child: Container(
         height: 1.4 * (MediaQuery.of(context).size.height / 20),

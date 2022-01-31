@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 const kmain = Color(0xFF00B7BD);
 
-const drkgrey = Color(0xFF202A33);
+const maingry = Color(0xFF0C0C0C);
 
 // const txtcolor = Colors.white;
 
-const litgrey = Color(0xFF2B3A41);
+const secondgry = Color(0xFF161616);

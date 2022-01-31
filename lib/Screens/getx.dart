@@ -31,7 +31,7 @@ class MainScreen extends StatelessWidget {
         ),
         bottomNavigationBar: Theme(
           data: Theme.of(context).copyWith(
-              canvasColor: litgrey,
+              canvasColor: maingry,
               primaryColor: kmain,
               textTheme: Theme.of(context)
                   .textTheme
@@ -41,24 +41,80 @@ class MainScreen extends StatelessWidget {
               type: BottomNavigationBarType.fixed,
               items: [
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.alarm),
-                  label: "Signals",
+                  activeIcon: ShaderMask(
+                    shaderCallback: (Rect bounds) {
+                      return RadialGradient(
+                        center: Alignment.topLeft,
+                        radius: 0.5,
+                        colors: <Color>[kmain, maingry],
+                        tileMode: TileMode.repeated,
+                      ).createShader(bounds);
+                    },
+                    child: Icon(Icons.signal_cellular_alt_sharp),
+                  ),
+                  icon: new Icon(Icons.signal_cellular_alt_sharp, color: kmain),
+                  label: 'Signals',
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.web_stories),
-                  label: "Courses",
+                  activeIcon: ShaderMask(
+                    shaderCallback: (Rect bounds) {
+                      return RadialGradient(
+                        center: Alignment.topLeft,
+                        radius: 0.5,
+                        colors: <Color>[kmain, maingry],
+                        tileMode: TileMode.repeated,
+                      ).createShader(bounds);
+                    },
+                    child: Icon(Icons.book_outlined),
+                  ),
+                  icon: new Icon(Icons.book_outlined, color: kmain),
+                  label: 'Courses',
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.calculate_outlined),
-                  label: "Fx Calculator",
+                  activeIcon: ShaderMask(
+                    shaderCallback: (Rect bounds) {
+                      return RadialGradient(
+                        center: Alignment.topLeft,
+                        radius: 0.5,
+                        colors: <Color>[kmain, maingry],
+                        tileMode: TileMode.repeated,
+                      ).createShader(bounds);
+                    },
+                    child: Icon(Icons.calculate_outlined),
+                  ),
+                  icon: new Icon(Icons.calculate_outlined, color: kmain),
+                  label: 'FX Calculator',
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.calendar_today_outlined),
-                  label: "Economic calendar",
+                  activeIcon: ShaderMask(
+                    shaderCallback: (Rect bounds) {
+                      return RadialGradient(
+                        center: Alignment.topLeft,
+                        radius: 0.5,
+                        colors: <Color>[kmain, maingry],
+                        tileMode: TileMode.repeated,
+                      ).createShader(bounds);
+                    },
+                    child: Icon(Icons.calendar_today),
+                  ),
+                  icon: new Icon(Icons.calendar_today, color: kmain),
+                  label: 'Economic Calender',
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.supervised_user_circle_rounded),
-                  label: "Profile",
+                  activeIcon: ShaderMask(
+                    shaderCallback: (Rect bounds) {
+                      return RadialGradient(
+                        center: Alignment.topLeft,
+                        radius: 0.5,
+                        colors: <Color>[kmain, maingry],
+                        tileMode: TileMode.repeated,
+                      ).createShader(bounds);
+                    },
+                    child: Icon(Icons.supervised_user_circle_outlined),
+                  ),
+                  icon: new Icon(Icons.supervised_user_circle_outlined,
+                      color: kmain),
+                  label: 'Profile',
                 ),
               ],
               currentIndex: navController.selectedIndex,
@@ -75,3 +131,23 @@ class NavController extends GetxController {
   get selectedIndex => _selectedIndex.value;
   set selectedIndex(index) => _selectedIndex.value = index;
 }
+
+// class LinearGradientMask extends StatelessWidget {
+//   LinearGradientMask({this.child});
+//   final Widget child;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return ShaderMask(
+//       shaderCallback: (bounds) {
+//         return RadialGradient(
+//           center: Alignment.topLeft,
+//           radius: 1,
+//           colors: [Colors.blue, Colors.red],
+//           tileMode: TileMode.mirror,
+//         ).createShader(bounds);
+//       },
+//       child: child,
+//     );
+//   }
+// }

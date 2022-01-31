@@ -1,6 +1,9 @@
 import 'package:bitfx/Screens/Signup.dart';
+import 'package:bitfx/Screens/color.dart';
+
 import 'package:bitfx/Screens/getx.dart';
-import 'package:bitfx/color.dart';
+import 'package:bitfx/main.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -16,19 +19,20 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var widht = MediaQuery.of(context).size.width;
-    print('widht : $widht height $height');
 
     return SafeArea(
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: Stack(
+        child: Scaffold(
+      resizeToAvoidBottomInset: false,
+      body: Container(
+        color: secondgry,
+        child: Stack(
           children: <Widget>[
             Container(
-              height: MediaQuery.of(context).size.height * 0.5,
+              height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
               child: Container(
                 decoration: BoxDecoration(
-                    color: kmain,
+                    color: secondgry,
                     borderRadius: BorderRadius.only(
                       bottomLeft: const Radius.circular(70),
                       bottomRight: const Radius.circular(70),
@@ -42,19 +46,26 @@ class _LoginState extends State<Login> {
           ],
         ),
       ),
-    );
+    ));
   }
 
   Widget _buildlogo() {
-    return Row(
+    return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
+        Image(
+          image: AssetImage('assets/bitfx.png'),
+          // width: MediaQuery.of(context).size.width * 0.3,
+          // height: MediaQuery.of(context).size.height * 0.3,
+          width: 300,
+          height: 200,
+        ),
         Text(
-          'Welcome to BITFX',
+          'LOG INTO BITFX',
           style: TextStyle(
             fontSize: MediaQuery.of(context).size.height / 25,
             fontWeight: FontWeight.bold,
-            color: litgrey,
+            color: kmain,
           ),
         )
       ],
@@ -96,10 +107,27 @@ class _LoginState extends State<Login> {
           Container(
             // height: 1.4 * (MediaQuery.of(context).size.height / 20),
             // width: 5 * (MediaQuery.of(context).size.width / 10),
-            child: Text(
-              "Don't have an account? Sign up",
-              style: TextStyle(
-                  fontSize: 12, fontWeight: FontWeight.bold, color: kmain),
+            child: Row(
+              children: [
+                Text(
+                  "Don't have an account?",
+                  style: TextStyle(
+                      fontSize: 12, fontWeight: FontWeight.bold, color: kmain),
+                ),
+                TextButton(
+                  onPressed: () {
+                    Get.to(SignupScreen());
+                  },
+                  child: Text(
+                    'Sign up',
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        decoration: TextDecoration.underline,
+                        color: kmain),
+                  ),
+                ),
+              ],
             ),
           ),
         ],
@@ -156,46 +184,34 @@ class _LoginState extends State<Login> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         ClipRRect(
-          borderRadius: BorderRadius.all(
-            Radius.circular(20),
-          ),
           child: Container(
-            height: MediaQuery.of(context).size.height * 0.6,
+            height: MediaQuery.of(context).size.height * 0.5,
             width: MediaQuery.of(context).size.width * 0.8,
-            decoration: BoxDecoration(color: drkgrey
-                // gradient: LinearGradient(
-                //   begin: Alignment.topRight,
-                //   end: Alignment.bottomCenter,
-                //   colors: [
-                //     kmain,
-                //     Colors.black,
-                //   ],
-                // ),
-                ),
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.black, width: 3.0),
+              color: secondgry,
+              boxShadow: [
+                BoxShadow(
+                    color: kmain.withOpacity(0.5),
+                    spreadRadius: 3,
+                    blurRadius: 2.0,
+                    offset: Offset(2.0, 2.0),
+                    blurStyle: BlurStyle.outer),
+              ],
+            ),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      'Log in Into your Account',
-                      style: TextStyle(
-                        color: kmain,
-                        fontWeight: FontWeight.bold,
-                        fontSize: MediaQuery.of(context).size.height / 35,
-                      ),
-                    )
-                  ],
-                ),
                 _buildemail(),
                 _buildpasswordRow(),
                 _passwordbutton(),
+                SizedBox(
+                  height: 10,
+                ),
                 _LogInbutton(context),
                 _box(),
-                _SignUpbutton(context),
+                // _SignUpbutton(context),
               ],
             ),
           ),
@@ -215,7 +231,7 @@ Widget _LogInbutton(context) {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))),
     child: Ink(
       decoration: BoxDecoration(
-          gradient: LinearGradient(colors: [kmain, drkgrey]),
+          gradient: LinearGradient(colors: [kmain, maingry]),
           borderRadius: BorderRadius.circular(20)),
       child: Container(
         height: 1.4 * (MediaQuery.of(context).size.height / 20),
@@ -240,7 +256,7 @@ Widget _SignUpbutton(context) {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))),
     child: Ink(
       decoration: BoxDecoration(
-          gradient: LinearGradient(colors: [kmain, drkgrey]),
+          gradient: LinearGradient(colors: [kmain, maingry]),
           borderRadius: BorderRadius.circular(20)),
       child: Container(
         height: 1.4 * (MediaQuery.of(context).size.height / 20),
